@@ -1,0 +1,86 @@
+<!doctype html>
+<html lang="id">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Halaman detail produk yang memuat data dari REST API.">
+  <title>Detail Produk — API Study Case</title>
+  <link rel="stylesheet" href="/shared/styles.css">
+  <link rel="stylesheet" href="api-page.css">
+  <script src="product.js" defer></script>
+</head>
+<body>
+  <a class="skip-link" href="#main">Lewati ke produk</a>
+  <div class="announcement">Detail produk · Data dimuat dari API</div>
+  <header class="site-header">
+    <a class="brand" href="/reference/index.html" aria-label="United By Blue — halaman referensi">united by blue<span>.</span></a>
+    <nav class="site-nav" aria-label="Navigasi utama">
+      <a href="/reference/index.html">Halaman referensi</a>
+      <a class="nav-api" href="#product">API study case</a>
+    </nav>
+  </header>
+
+  <main id="main" class="page-shell">
+    <nav class="breadcrumbs" aria-label="Breadcrumb">
+      <a href="/reference/index.html">Home</a>
+      <span aria-hidden="true">/</span>
+      <span>Detail produk dari API</span>
+      <span aria-hidden="true">/</span>
+      <span id="breadcrumb-name" aria-current="page">Memuat produk...</span>
+    </nav>
+
+    <div id="loading-state" class="loading-state" role="status" aria-live="polite">
+      Memuat detail produk...
+    </div>
+    <div id="error-state" class="error-state" role="alert" hidden></div>
+
+    <section id="product" class="product-layout" aria-labelledby="product-title" hidden>
+      <div class="gallery-column">
+        <div class="gallery-frame api-gallery-frame">
+          <span class="image-note">DETAIL PRODUK</span>
+          <img id="main-image" class="main-image" alt="">
+          <span class="image-count" id="image-count"></span>
+        </div>
+        <div id="thumbnail-row" class="thumbnail-row" role="group" aria-label="Foto produk"></div>
+        <p id="image-message" class="gallery-caption" aria-live="polite"></p>
+      </div>
+
+      <div class="product-info">
+        <p class="eyebrow">DATA PRODUK DARI REST API</p>
+        <h1 id="product-title"></h1>
+        <p class="price" id="product-price"></p>
+        <p class="short-description" id="product-description"></p>
+
+        <div class="option-group">
+          <h2 class="option-heading">Ukuran</h2>
+          <div id="product-sizes" class="size-list" aria-label="Ukuran yang tersedia"></div>
+        </div>
+        <div class="option-group">
+          <h2 class="option-heading">Warna</h2>
+          <div id="product-colors" class="swatch-list" aria-label="Warna yang tersedia"></div>
+        </div>
+
+        <p class="stock-line">Stok (data latihan): <strong id="product-stock"></strong></p>
+        <div class="purchase-row">
+          <div class="quantity-control" aria-label="Jumlah produk">
+            <button id="decrease-quantity" type="button" aria-label="Kurangi jumlah" disabled>−</button>
+            <output id="quantity" aria-live="polite">1</output>
+            <button id="increase-quantity" type="button" aria-label="Tambah jumlah">+</button>
+          </div>
+          <button id="add-to-cart" class="button button-primary" type="button" disabled>
+            Tambah ke keranjang <span aria-hidden="true">→</span>
+          </button>
+        </div>
+        <p id="purchase-message" class="demo-note" role="status" aria-live="polite">
+          Tombol keranjang adalah simulasi frontend.
+        </p>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <a class="brand" href="/reference/index.html">united by blue<span>.</span></a>
+    <p>Study case · halaman produk dinamis dengan Express API dan MySQL</p>
+  </footer>
+</body>
+</html>

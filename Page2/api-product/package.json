@@ -1,0 +1,20 @@
+{
+  "name": "api-product-page",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Product detail page with an Express API and MySQL",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node --watch server.js"
+  },
+  "engines": {
+    "node": ">=18"
+  },
+  "dependencies": {
+    "dotenv": "^16.4.7",
+    "express": "^4.21.2",
+    "mysql2": "^3.12.0",
+    "swagger-ui-express": "^5.0.1"
+  }
+}
