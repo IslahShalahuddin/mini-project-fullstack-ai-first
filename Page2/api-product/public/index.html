@@ -30,14 +30,21 @@
     </nav>
 
     <div id="loading-state" class="loading-state" role="status" aria-live="polite">
-      Memuat detail produk...
+      <span class="loading-spinner" aria-hidden="true"></span>
+      <span>Memuat detail produk...</span>
     </div>
-    <div id="error-state" class="error-state" role="alert" hidden></div>
+    <div id="error-state" class="error-state" role="alert" hidden>
+      <div>
+        <strong id="error-title">Produk tidak dapat dimuat</strong>
+        <p id="error-message"></p>
+      </div>
+      <button id="retry-load" class="button button-secondary" type="button">Coba lagi</button>
+    </div>
 
     <section id="product" class="product-layout" aria-labelledby="product-title" hidden>
       <div class="gallery-column">
         <div class="gallery-frame api-gallery-frame">
-          <span class="image-note">DETAIL PRODUK</span>
+          <span class="image-note">DIBUAT UNTUK PETUALANGAN</span>
           <img id="main-image" class="main-image" alt="">
           <span class="image-count" id="image-count"></span>
         </div>
@@ -46,21 +53,24 @@
       </div>
 
       <div class="product-info">
-        <p class="eyebrow">DATA PRODUK DARI REST API</p>
+        <p class="eyebrow">PILIHAN PERLENGKAPAN ANDALAN</p>
         <h1 id="product-title"></h1>
         <p class="price" id="product-price"></p>
         <p class="short-description" id="product-description"></p>
 
-        <div class="option-group">
-          <h2 class="option-heading">Ukuran</h2>
+        <fieldset id="size-group" class="option-group" hidden>
+          <legend>Ukuran <span id="selected-size" class="selected-value"></span></legend>
           <div id="product-sizes" class="size-list" aria-label="Ukuran yang tersedia"></div>
-        </div>
-        <div class="option-group">
-          <h2 class="option-heading">Warna</h2>
+        </fieldset>
+        <fieldset id="color-group" class="option-group" hidden>
+          <legend>Warna <span id="selected-color" class="selected-value"></span></legend>
           <div id="product-colors" class="swatch-list" aria-label="Warna yang tersedia"></div>
-        </div>
+        </fieldset>
 
-        <p class="stock-line">Stok (data latihan): <strong id="product-stock"></strong></p>
+        <div class="stock-panel">
+          <span id="stock-indicator" class="stock-indicator" aria-hidden="true"></span>
+          <p id="stock-message" class="stock-message" aria-live="polite"></p>
+        </div>
         <div class="purchase-row">
           <div class="quantity-control" aria-label="Jumlah produk">
             <button id="decrease-quantity" type="button" aria-label="Kurangi jumlah" disabled>−</button>
@@ -68,12 +78,14 @@
             <button id="increase-quantity" type="button" aria-label="Tambah jumlah">+</button>
           </div>
           <button id="add-to-cart" class="button button-primary" type="button" disabled>
-            Tambah ke keranjang <span aria-hidden="true">→</span>
+            <span>Tambah ke keranjang</span><span aria-hidden="true">→</span>
           </button>
         </div>
+        <p class="subtotal-line">Subtotal <strong id="product-subtotal"></strong></p>
         <p id="purchase-message" class="demo-note" role="status" aria-live="polite">
-          Tombol keranjang adalah simulasi frontend.
+          Demo frontend — pesanan tidak dikirim.
         </p>
+        <p class="product-id">ID produk <span id="product-id"></span></p>
       </div>
     </section>
   </main>
